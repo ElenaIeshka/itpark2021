@@ -5,6 +5,11 @@ public class WildAnimal extends AnimalsHw{
         super(nameAnimals, nickname, age, sex, voice);
 
     }
+    public void voice(String[] newVoice){
+        System.out.println("Рык");
+        super.voice(newVoice);
+
+    }
 
 
 }

@@ -27,7 +27,12 @@ public class AnimalsHw {
                 '}';
     }
 
-    public void voice() {
-            System.out.println("Животное " + nameAnimals + " c кличкой " + nickname + " издает звук " + voice);
-    }
-}
+    public void voice(String[] arg) {
+            System.out.println(voice);
+        }
+        }
+
+
+
+
+

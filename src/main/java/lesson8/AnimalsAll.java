@@ -9,7 +9,7 @@ public class AnimalsAll {
 
         AnimalsHw[] animal = new AnimalsHw[]{mila, barsik};
         for (AnimalsHw animals : animal) {
-            animals.voice();
+            animals.voice(args);
         }
     }
 }
