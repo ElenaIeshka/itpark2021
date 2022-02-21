@@ -1,14 +1,6 @@
 package lesson10.inter;
 
 public class Temperature implements Converter{
-    public double getF() {
-        return f;
-    }
-
-    public double getC() {
-        return c;
-    }
-
     double f;
     double c;
 

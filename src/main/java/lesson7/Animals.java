@@ -8,6 +8,7 @@ public class Animals {
     int swim;
 
 
+
     public String getNameAnimals() {
         return nameAnimals;
     }
