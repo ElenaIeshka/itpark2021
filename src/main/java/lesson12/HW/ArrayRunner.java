@@ -28,7 +28,7 @@ public class ArrayRunner {
         if (length > array.length + 1) {
             throw new ArraySizeException("Введено лишнее значение " + in.next());
         }
-        return;
+
 
 
     }
@@ -59,16 +59,17 @@ public class ArrayRunner {
 
             for (int j = 0; j < 4; j++) {
                 System.out.print(newArray[i][j] + " "); // выводим строку массива
+                sum = sum + newArray[i][j];// сумма элементов массива
             }
             System.out.println();// переходим на новую строку
         }
 
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                sum = sum + newArray[i][j];// сумма элементов массива
-            }
-        }
+//        for (int i = 0; i < 4; i++) {
+//            for (int j = 0; j < 4; j++) {
+//                sum = sum + newArray[i][j];// сумма элементов массива
+//            }
+//        }
         return sum;
 
 
