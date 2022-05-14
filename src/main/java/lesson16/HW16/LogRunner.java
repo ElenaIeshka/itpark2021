@@ -13,18 +13,18 @@ public class LogRunner {
 
     private static final String FILE_NAME = "C:\\Users\\pavlo\\OneDrive\\Рабочий стол\\test\\test.txt";
 
-    public static void main(String[] args) throws Exception{
-        List <Thread> threads = IntStream.range(0,3).boxed().map(i ->{
+    public static void main(String[] args) throws Exception {
+        List<Thread> threads = IntStream.range(0, 3).boxed().map(i -> {
             final LogLevel[] logLevels = LogLevel.values();
-        Logger logger = new Logger(logLevels[new Random().nextInt(logLevels.length)], FILE_NAME);
-        return new Thread(logger);
-    }).peek(Thread::start).collect(Collectors.toList());
-        for (Thread thread: threads){
+            Logger logger = new Logger(logLevels[new Random().nextInt(logLevels.length)], FILE_NAME);
+            return new Thread(logger);
+        }).peek(Thread::start).collect(Collectors.toList());
+        for (Thread thread : threads) {
             thread.join();
         }
-        try (FileReader fr = new FileReader(FILE_NAME)){
+        try (FileReader fr = new FileReader(FILE_NAME)) {
             IOUtil.copy(fr, System.out);
         }
 
-}
+    }
 }

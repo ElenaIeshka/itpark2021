@@ -11,7 +11,7 @@ import java.util.Random;
 
 
 @RequiredArgsConstructor
-public class Logger implements Runnable{
+public class Logger implements Runnable {
 
     private static final String FORMAT_TEXT = "%s %s %s %s\n";
     private static final DateTimeFormatter FULL_DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
@@ -22,15 +22,14 @@ public class Logger implements Runnable{
     private int counter = 1;
 
 
-
     @Override
-    public void run(){
+    public void run() {
         System.out.printf("Начал работу поток %s\n", Thread.currentThread().getName());
-        while (System.currentTimeMillis()<= currentTimeMillis + 60*1000){//время работы потока ограничено 1 минутой
-            try(FileWriter fw = new FileWriter(fileName,true)){
+        while (System.currentTimeMillis() <= currentTimeMillis + 60 * 1000) {//время работы потока ограничено 1 минутой
+            try (FileWriter fw = new FileWriter(fileName, true)) {
                 fw.write(generateString());
                 Thread.sleep(new Random().nextInt(5_000));
-            }catch (IOException | InterruptedException exception){
+            } catch (IOException | InterruptedException exception) {
                 exception.printStackTrace();
                 break;
             }
@@ -38,10 +37,11 @@ public class Logger implements Runnable{
         }
 
     }
-    private String generateString(){
-        LocalDateTime now =LocalDateTime.now();
-        return String.format(FORMAT_TEXT,FULL_DATE_TIME_FORMAT.format(now),
-                level, Thread.currentThread().getName(),"Записали сообщение под № " + counter++);
+
+    private String generateString() {
+        LocalDateTime now = LocalDateTime.now();
+        return String.format(FORMAT_TEXT, FULL_DATE_TIME_FORMAT.format(now),
+                level, Thread.currentThread().getName(), "Записали сообщение под № " + counter++);
     }
 
 
